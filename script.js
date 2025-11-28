@@ -671,7 +671,7 @@ function addMovementTracksToMap() {
                 .setLngLat(coords)
                 .setHTML(`
                     <strong>Nome:</strong> ${closestPointData.individual_name}<br>
-                    <strong>Sxo:</strong> ${closestPointData.sex}<br>
+                    <strong>Sexo:</strong> ${closestPointData.sex}<br>
                     <strong>Idade:</strong> ${closestPointData.age}<br>
                     <strong>Bioma:</strong> ${closestPointData.Biome}<br>
                     <strong>Horário:</strong> ${closestPointData.timestamp}<br>
