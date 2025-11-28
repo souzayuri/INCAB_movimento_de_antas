@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapir's Diel Activity</title>
+    <link rel="icon" href="figures/tapirs_pawn_flipped_colored.svg" type="image/svg+xml">
+    
+    <!-- mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- JS -->
+
+    <script src="script.js" type="module"></script> <!-- allows to import modules-->
+    <!-- Import style from CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Import preconnect font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Import font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Iansui&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div class="three-column-container">
+        <!-- First column: video-text and video-player -->
+        <div class="column">
+            <div class="video-container">
+                <div class="video-text">
+                    <h1>Vocês já se perguntaram quais horarios nós (antas) fazemos nossas caminhadas e quais trajetos percorremos?</h1>
+                    <p> 
+                        Nos últimos 30 anos, nossos amigos das Iniciativa Nacional para Conservação das Antas Brasileiras (INCAB) coletaram dados valiosos sobre como nos movimentamos.  <br><br> 
+                        Esses dados foram coletados usando colares de telemetria. <br><br>
+                        Aqui, você pode caminhar conosco clicando nos dedos da nossa pata abaixo, que permitem selecionar um bioma específico e uma anta do seu interesse. <br><br>
+                        Você também pode explorar quais horários do dia as antas selecionadas andam mais. <br><br>
+                        Algumas antas são muito mais ativas do que outras, parecem até que não dormem. <br><br>
+                        Use os dedos das suas patas para ajustar o zoom, e clique nas linha do nosso trajeto para saber mais sobre ele!!!<br><br>
+                    </p>
+                </div>
+                 <!-- autoplay, loop, muted, controls -->
+                <video class="video-player" src="anta.MP4" type="video/MP4" autoplay loop muted playsinline>
+                </video>
+            </div>
+        </div>
+        
+        <!-- Second column: layout-container with chart -->
+        <div class="column">
+            <div class="layout-container">
+                <div class="main-content">
+                    <!-- Chart container -->
+                    <div id="chart-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Third column: map -->
+        <div class="column">
+            <div id="map">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

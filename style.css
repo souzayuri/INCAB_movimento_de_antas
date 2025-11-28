@@ -1,0 +1,612 @@
+/* Main container styles */
+#chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-family: 'Bungee', Arial, sans-serif;
+  overflow: visible;
+  width: 100%;
+}
+
+/* Three-column layout styles */
+.three-column-container {
+    display: flex;
+    width: 100%;
+    gap: 10px; /* Reduced overall gap */
+    margin-top: 50px;
+}
+
+/* Column styling */
+.column {
+    flex: 1;
+}
+
+/* First column with specific width */
+.column:first-child {
+    flex: 0 0 420px; /* Increased from 380px to 420px */
+    max-width: 420px;
+    max-height: 650px;
+    margin-right: 5px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0 0 10px #81444433;
+    background-color: #e4e0da96;
+    overflow: visible; /* Ensure content isn't clipped */
+}
+
+/* Second column with smaller width */
+.column:nth-child(2) {
+    flex: 0 0 auto;
+    max-width: 500px;
+    margin-right: 50px;
+    margin-left: 30px;
+}
+
+/* Third column (map) to fill remaining space */
+.column:nth-child(3) {
+    flex: 1 1 auto; /* Grow to fill remaining space */
+}
+
+/* Video element styles - FIXED ALIGNMENT */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.video-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    width: 100%;
+}
+
+/* Style the main heading (h1) */
+h1 {
+  text-align: center;
+  font-family: "Carter One", system-ui;
+  font-weight: 180;
+  font-style: normal;
+  color: #737e7b;
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+.video-text {
+    width: 100%;
+    text-align: center;
+    font-family: "Iansui", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 19px;
+    color: #657470;
+}
+
+/* Tapir styles */
+.tapir-body {
+  fill: #8b7470;
+  stroke: none;
+  stroke-width: 1px;
+}
+
+.tapir-message {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 14px;
+  fill: #f5f5f5;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+.tapir-finger {
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.tapir-finger:hover {
+  fill: #d5d8ce;
+}
+
+/* Finger label styles */
+.tapir-finger-label {
+  cursor: pointer;
+}
+
+.finger-label-text {
+  fill: #475d57;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 12px;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+/* Dropdown container (hidden) */
+.hidden-dropdowns {
+  display: none;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #475d57;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+.selection-option {
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 1s;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+.selection-option:hover {
+  background-color: #eaf7ff;
+}
+
+.selection-option.selected {
+  background-color: #eaf7ff;
+  font-weight: bold;
+}
+
+/* Chart styles with responsive sizing */
+#main-chart {
+  margin-top: -20px;
+  padding-top: 0px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.boundary-circle {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5;
+}
+
+.circular-grid-line {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 0.5;
+  stroke-dasharray: 2, 2;
+}
+
+.radial-grid-line {
+  stroke: #ccc;
+  stroke-width: 0.5;
+  stroke-dasharray: 2, 2;
+}
+
+.hour-label {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 12px;
+  fill: #666;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+.scale-label {
+  text-anchor: middle;
+  font-size: 10px;
+  fill: #999;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+/* Tapir selector container */
+.tapir-selector-container {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 35px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Biome modal styles */
+.biome-modal {
+  color: #475d57;
+  font-size: 10px;
+  display: none;
+  position: absolute;
+  top: 24%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  background-color: #d5d8ce;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  min-width: 100px;
+}
+
+.modal-container {
+  position: relative;
+}
+
+/* Selection list within modal */
+.selection-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Selection option styling */
+.selection-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+/* Selected option highlight */
+.selection-option.selected {
+  background-color: #e6f3ff;
+}
+
+/* Tapir finger classes */
+.tapir-finger {
+  cursor: pointer;
+}
+
+/* Tapir finger label classes */
+.tapir-finger-label {
+  cursor: pointer;
+}
+
+.tapir-finger, .tapir-finger-label, .selection-option, 
+.biome-modal, .modal-title, .selection-list {
+  cursor: url('figures/tapirs_pawn_flipped_colored_fade.svg') 12 12, auto !important;
+  transition: all 0.3s ease;
+}
+
+.tapir-finger:hover, .tapir-finger-label:hover, .selection-option:hover, 
+.biome-modal:hover, .modal-title:hover, .selection-list:hover {
+  filter: brightness(0.99);
+}
+
+/* Hidden dropdowns container */
+.hidden-dropdowns {
+  display: none;
+}
+
+/* Apply styles to the entire page */
+body {
+  font-family: 'Bungee', cursive !important;
+  background-color: #a298b3a9;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: cursor 0.3s ease;
+}
+
+/* Layout container setup */
+.layout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  min-height: 600px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+/* SVG styling */
+#main-chart svg {
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0.2,0.2,0.2,0.2);
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+/* Hour labels styling - now includes time of day labels */
+.hour-label {
+  font-family: 'Bungee', cursive !important;
+  font-size: 14px;
+  font-weight: 500;
+  fill: #6f8982 !important;
+}
+
+/* Circular grid lines styling */
+.circular-grid-line {
+  stroke: #ccc;
+  stroke-dasharray: 2, 2, 48;
+  fill: none;
+}
+
+/* Radial grid lines styling */
+.radial-grid-line {
+  stroke: #ccc;
+  stroke-dasharray: 2, 2;
+}
+
+/* Scale labels styling */
+.scale-label {
+  font-size: 12px;
+  fill: #475d57;
+  fill-opacity: 0.6;
+}
+
+/* Biome label styling */
+.biome-label {
+  color: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  font-family: 'Bungee', Arial, sans-serif;
+}
+
+.atlantic-forest {
+  background-color: #2E8B57;
+}
+
+.cerrado {
+  background-color: #CD853F;
+}
+
+.pantanal {
+  background-color: #806D43;
+}
+
+/* Map styling with proper height */
+#map { 
+  flex: 1;
+  min-width: auto;
+  background-color: #e0e0e0;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-left: 20px;
+  display: flex;
+  box-sizing: border-box;
+  align-self: stretch;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+/* ===== IMPROVED MOBILE RESPONSIVENESS ===== */
+
+/* Tablet screens */
+@media (max-width: 1200px) {
+  .three-column-container {
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .column:first-child {
+    flex: 0 0 360px;
+    max-width: 360px;
+    margin-left: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  .column:nth-child(2) {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  
+  .video-text {
+    font-size: 17px;
+  }
+  
+  h1 {
+    font-size: 18px;
+  }
+  
+  #main-chart {
+    max-width: 350px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 900px) {
+  .three-column-container {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .column {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    flex: 1 1 auto !important;
+  }
+  
+  .column:first-child {
+    max-height: none;
+    padding: 15px 20px;
+  }
+  
+  #map {
+    width: 100%;
+    min-height: 400px;
+    height: 400px;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  
+  body {
+    padding: 10px;
+  }
+  
+  .layout-container {
+    min-height: auto;
+  }
+  
+  #main-chart {
+    max-width: 100%;
+  }
+
+  video {
+    /* Ensure video is playable on mobile */
+  -webkit-playsinline: true;
+  -moz-playsinline: true;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+  .three-column-container {
+    margin-top: 10px;
+    gap: 15px;
+  }
+  
+  .column:first-child {
+    border-radius: 15px;
+    padding: 15px 15px 20px 15px;
+  }
+  
+  .video-text {
+    font-size: 15px;
+  }
+  
+  .video-text p {
+    margin: 10px 0;
+  }
+  
+  h1 {
+    font-size: 16px;
+    margin-bottom: -5px;
+  }
+  
+  video {
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  
+  .tapir-selector-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  #main-chart {
+    margin-top: -10px;
+    max-width: 350px;
+  }
+  
+  #map {
+    min-height: 350px;
+    height: 350px;
+    border-radius: 8px;
+  }
+  
+  .hour-label {
+    font-size: 11px;
+  }
+  
+  .scale-label {
+    font-size: 9px;
+  }
+  
+  body {
+    padding: 8px;
+  }
+}
+
+/* Very small smartphones */
+@media (max-width: 480px) {
+  .three-column-container {
+    margin-top: 5px;
+    gap: 10px;
+  }
+  
+  .video-text {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 15px;
+  }
+  
+  .column:first-child {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+  
+  video {
+    margin-top: 12px;
+  }
+  
+  #map {
+    min-height: 300px;
+    height: 300px;
+  }
+  
+  .tapir-selector-container {
+    max-width: 300px;
+    height: 250px;
+  }
+  
+  .hour-label {
+    font-size: 10px;
+  }
+  
+  .tapir-message {
+    font-size: 14px;
+  }
+  
+  .finger-label-text {
+    font-size: 10px;
+  }
+  
+  #main-chart {
+    max-width: 300px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+  #map {
+    min-height: 300px;
+    height: 300px;
+  }
+  
+  .column:first-child {
+    max-height: none;
+  }
+}
